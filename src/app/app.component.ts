@@ -15,7 +15,7 @@ export const ROOT_SELECTOR = 'app';
   selector: ROOT_SELECTOR,
   encapsulation: ViewEncapsulation.None,
   styleUrls: [
-    './app.component.css'
+    './app.component.scss'
   ],
   templateUrl: './app.component.html'
 })

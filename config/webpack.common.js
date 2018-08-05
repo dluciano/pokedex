@@ -16,6 +16,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackInlineManifestPlugin = require('webpack-inline-manifest-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const AngularCompilerPlugin = require('@ngtools/webpack').AngularCompilerPlugin;
+const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 
 const buildUtils = require('./build-utils');
 
@@ -24,7 +25,7 @@ const buildUtils = require('./build-utils');
  *
  * See: https://webpack.js.org/configuration/
  */
-module.exports = function(options) {
+module.exports = function (options) {
   const isProd = options.env === 'production';
   const APP_CONFIG = require(process.env.ANGULAR_CONF_FILE || (isProd ? './config.prod.json' : './config.dev.json'));
 
@@ -122,7 +123,19 @@ module.exports = function(options) {
          */
         {
           test: /\.scss$/,
-          use: ['to-string-loader', 'css-loader', 'sass-loader'],
+          use: ['to-string-loader', 'css-loader',
+            {
+              // Loader for webpack to process CSS with PostCSS
+              loader: 'postcss-loader',
+              options: {
+                plugins: function () {
+                  return [
+                    require('autoprefixer')
+                  ];
+                }
+              }
+            },
+            'sass-loader'],
           exclude: [helpers.root('src', 'styles')]
         },
 
@@ -205,7 +218,7 @@ module.exports = function(options) {
       new HtmlWebpackPlugin({
         template: 'src/index.html',
         title: METADATA.title,
-        chunksSortMode: function(a, b) {
+        chunksSortMode: function (a, b) {
           const entryPoints = ['inline', 'polyfills', 'sw-register', 'styles', 'vendor', 'main'];
           return entryPoints.indexOf(a.names[0]) - entryPoints.indexOf(b.names[0]);
         },
@@ -215,10 +228,10 @@ module.exports = function(options) {
         xhtml: true,
         minify: isProd
           ? {
-              caseSensitive: true,
-              collapseWhitespace: true,
-              keepClosingSlash: true
-            }
+            caseSensitive: true,
+            collapseWhitespace: true,
+            keepClosingSlash: true
+          }
           : false
       }),
 
@@ -270,7 +283,32 @@ module.exports = function(options) {
        *
        * https://github.com/almothafar/webpack-inline-manifest-plugin
        */
-      new WebpackInlineManifestPlugin()
+      new WebpackInlineManifestPlugin(),
+
+      /**
+       * Plugin: WebpackInlineManifestPlugin
+       * Inline Webpack's manifest.js in index.html
+       *
+       * https://github.com/almothafar/webpack-inline-manifest-plugin
+       */
+      new ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery",
+        Tether: "tether",
+        "window.Tether": "tether",
+        Tooltip: "exports-loader?Tooltip!bootstrap/js/dist/tooltip",
+        Alert: "exports-loader?Alert!bootstrap/js/dist/alert",
+        Button: "exports-loader?Button!bootstrap/js/dist/button",
+        Carousel: "exports-loader?Carousel!bootstrap/js/dist/carousel",
+        Collapse: "exports-loader?Collapse!bootstrap/js/dist/collapse",
+        Dropdown: "exports-loader?Dropdown!bootstrap/js/dist/dropdown",
+        Modal: "exports-loader?Modal!bootstrap/js/dist/modal",
+        Popover: "exports-loader?Popover!bootstrap/js/dist/popover",
+        Scrollspy: "exports-loader?Scrollspy!bootstrap/js/dist/scrollspy",
+        Tab: "exports-loader?Tab!bootstrap/js/dist/tab",
+        Util: "exports-loader?Util!bootstrap/js/dist/util"
+      }),
     ],
 
     /**

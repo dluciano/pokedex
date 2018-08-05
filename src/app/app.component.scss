@@ -1,5 +1,6 @@
+$page-container-max-width: 1024px !default;
+
 html, body {
-  height: 100%;
   background: no-repeat url("../assets/img/Background_2.png");
   /*TODO: Add polyfill to background-size:cover property*/
   background-size: cover;
@@ -9,22 +10,22 @@ header {
   min-height: 50px;
   max-height: 50px;
   height: 50px;
-}
 
-  header nav {
+  nav {
     min-height: inherit !important;
     max-height: inherit !important;
     height: inherit !important;
   }
+}
 
-#homeTxt {
+#nav-title {
   height: 100%;
   padding: 16px 0;
   font-weight: bold !important;
   font-size: 18px !important;
 }
 
-#mainContainer {
-  width: 100%;
-  height: calc(100% - 50px);
+.page-container {
+  max-width: $page-container-max-width !important;
+  margin: 0 auto !important;
 }

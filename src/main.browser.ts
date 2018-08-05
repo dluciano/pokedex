@@ -1,4 +1,10 @@
 /**
+ * Boostrap library
+ */
+
+import 'bootstrap';
+
+/**
  * Angular bootstrapping
  */
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
