@@ -60,6 +60,7 @@
         width: 50%;
         border-bottom-left-radius: $border-radius-card;
         border-top-right-radius: $border-radius-card;
+        text-transform: uppercase;
 
         &:nth-child(2n) {
           border-radius: unset;
