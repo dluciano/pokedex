@@ -14,18 +14,17 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { HomeComponent } from './home';
-import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
-import { XLargeDirective } from './home/x-large';
-import { DevModuleModule } from './+dev-module';
+//import { DevModuleModule } from './+dev-module';
 
 import '../styles/styles.scss';
-import '../styles/headings.css';
+import '../styles/headings.scss';
+import { PokemonService } from './+pokemon/pokemon.service';
 
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
+  PokemonService,
   AppState
 ];
 
@@ -42,10 +41,7 @@ interface StoreType {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    AboutComponent,
-    HomeComponent,
-    NoContentComponent,
-    XLargeDirective
+    NoContentComponent
   ],
   /**
    * Import Angular's modules.
@@ -58,14 +54,14 @@ interface StoreType {
     RouterModule.forRoot(ROUTES, {
       useHash: Boolean(history.pushState) === false,
       preloadingStrategy: PreloadAllModules
-    }),
+    })
 
     /**
      * This section will import the `DevModuleModule` only in certain build types.
      * When the module is not imported it will get tree shaked.
      * This is a simple example, a big app should probably implement some logic
      */
-    ...environment.showDevModule ? [ DevModuleModule ] : [],
+    //...environment.showDevModule ? [ DevModuleModule ] : [],
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.

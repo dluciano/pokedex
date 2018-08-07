@@ -1,20 +1,21 @@
-$page-container-max-width: 1024px !default;
+@import '../styles/variables';
 
 html, body {
-  background: no-repeat url("../assets/img/Background_2.png");
+  background: no-repeat url($body-bck-image-path);
   /*TODO: Add polyfill to background-size:cover property*/
   background-size: cover;
 }
 
 header {
-  min-height: 50px;
-  max-height: 50px;
-  height: 50px;
+  min-height: $app-header-width;
+  max-height: $app-header-height;
+  height: $app-header-width;
 
   nav {
     min-height: inherit !important;
     max-height: inherit !important;
     height: inherit !important;
+    margin: 0 auto;
   }
 }
 
@@ -25,7 +26,8 @@ header {
   font-size: 18px !important;
 }
 
-.page-container {
-  max-width: $page-container-max-width !important;
-  margin: 0 auto !important;
+@media (min-width: #{$page-container-max-width}) {
+  .page-container {
+    max-width: $page-container-max-width !important;
+  }
 }

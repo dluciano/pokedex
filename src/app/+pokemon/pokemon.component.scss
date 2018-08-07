@@ -1,0 +1,85 @@
+@import '../../styles/variables';
+
+.pokemon-home-container {
+  padding: 54px 60px 54px 60px;
+  min-height: calc(100vh - 54px);
+
+  col {
+    padding: 0;
+  }
+
+
+  #pokemon-home-title {
+    margin-bottom: 54px;
+  }
+
+  .pokemon-list-container {
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    .pokemon-detail-short {
+      $border-radius-card: 7.5px;
+      $title-margin-top-size: 6px;
+      $title-font-size: 1rem;
+      $abilities-height: 22px;
+      $card-width: 216px;
+      $card-height: 238px;
+
+      background-color: #{$poke-dark-1};
+      margin: 0 !important;
+      margin-right: 13px !important;
+      margin-bottom: 60px !important;
+      padding: 0 !important;
+      border-radius: #{$border-radius-card} !important;
+      width: #{$card-width};
+      max-width: #{$card-width};
+      max-height: $card-height;
+
+      .title {
+        margin: #{$title-margin-top-size} 0 0 6px;
+        font-size: #{$title-font-size} !important;
+        text-transform: capitalize;
+      }
+
+      &:nth-child(4n) {
+        margin-right: 0 !important;
+      }
+
+      .image-container {
+        img {
+          //Substract the margin top of the title, its content size and the height of the abilities boxes
+          width: calc(100% - #{$title-margin-top-size} - #{$title-font-size}) !important;
+          height: auto !important;
+        }
+      }
+
+      .abilities {
+        height: $abilities-height;
+        display: inline-block;
+        width: 50%;
+        border-bottom-left-radius: $border-radius-card;
+        border-top-right-radius: $border-radius-card;
+
+        &:nth-child(2n) {
+          border-radius: unset;
+          border-top-left-radius: $border-radius-card;
+          border-bottom-right-radius: $border-radius-card;
+        }
+      }
+    }
+  }
+
+  .pokemon-btn-load-more-wrapper {
+    text-align: center;
+    margin-bottom: 62px;
+
+    button {
+      background-color: #4A90E2;
+      min-width: 210px;
+      max-width: 210px;
+      width: 210px;
+      text-transform: uppercase;
+    }
+  }
+}

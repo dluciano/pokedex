@@ -1,13 +1,9 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home';
-import { AboutComponent } from './about';
+import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { NoContentComponent } from './no-content';
 
 export const ROUTES: Routes = [
-  { path: '',      component: HomeComponent },
-  { path: 'home',  component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'detail', loadChildren: './+detail#DetailModule'},
-  { path: 'barrel', loadChildren: './+barrel#BarrelModule'},
-  { path: '**',    component: NoContentComponent },
+  { path: '', loadChildren: './+pokemon#PokemonModule', resolve: { data: APP_RESOLVER_PROVIDERS[0] } },
+  { path: 'pokemon', loadChildren: './+pokemon#PokemonModule', resolve: { data: APP_RESOLVER_PROVIDERS[0] } },
+  { path: '**', component: NoContentComponent },
 ];
