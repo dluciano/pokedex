@@ -1,1 +1,1 @@
-export { PokemonModule } from './home.module';
+export { HomeModule } from './home.module';

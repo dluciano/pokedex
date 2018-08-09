@@ -8,6 +8,14 @@
   $types-height: 22px;
   $border-radius-card: 7.5px;
 
+  &:hover {
+    cursor: default;
+  }
+
+  &.loading:hover {
+    cursor: wait !important;
+  }
+
   border-radius: #{$border-radius-card} !important;
   display: inline-block;
   position: relative;
@@ -29,12 +37,12 @@
   }
 
   .types {
+    float: left;
     height: $types-height;
     display: inline-block;
     width: 50%;
     text-transform: uppercase;
     font-size: .7rem;
-    float: right;
     border-top-left-radius: $border-radius-card;
     border-bottom-right-radius: $border-radius-card;
 
@@ -65,7 +73,7 @@
     }
 
     &:nth-child(2n) {
-      float: left;
+      float: right;
       border-radius: unset;
       border-bottom-left-radius: $border-radius-card;
       border-top-right-radius: $border-radius-card;

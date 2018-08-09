@@ -7,10 +7,9 @@
     <h2 class="anteior float-left bg-white">Ivysaur #002</h2>
     <span id="icon-next float-right"></span>
   </div>
+  <h1 class="pokemon-detail-title clear-both text-center">{{model.name}}</h1>
 
-  <h1 class="pokemon-detail-title">{{model.name}}</h1>
-
-  <pokemon-image [model]="model" [showLoading]="state === 'loading'"></pokemon-image>
+  <pokemon-image [model]="model" class="custom-pokemon-image-size {{state}}" [showLoading]="state === 'loading'"></pokemon-image>
 
   <div class="pokemon-btn-explore-more-wrapper text-center">
     <button class="btn">EXPLORE MORE POK&Eacute;MON</button>
