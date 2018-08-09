@@ -1,5 +1,6 @@
 export class ApiEntity {
   constructor(public url: string) { }
+  updateFromResponse(response: any): any { }
 }
 
 export class NameEntity extends ApiEntity {
@@ -19,14 +20,12 @@ export class Pokemon extends NameEntity {
     public name: string = "",
     public url: string = "",
     public types: Array<NameEntity> = Array<NameEntity>(),
-    public abilities: Array<NameEntity> = Array<NameEntity>(),
-    public state: "loading") {
+    public abilities: Array<NameEntity> = Array<NameEntity>()) {
     super(name, url);
   }
 
   image() {
-    return this.id <= 0 ? "../assets/img/loading.png" :
-      "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/" + this.zeros() + ".png";
+    return "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/" + this.zeros() + ".png";
   }
 
   zeros() {
@@ -35,8 +34,19 @@ export class Pokemon extends NameEntity {
         this.id;
   }
 
+  updateFromResponse(response: any): any {
+    this.id = response.id;
+    this.name = response.name;
+    response.abilities.forEach(e =>
+      this.abilities.push(new NameEntity(e.name, e.url))
+    );
+    response.abilities.forEach(e =>
+      this.types.push(new NameEntity(e.name, e.url))
+    );
+  }
+
   public static initial(name: string, url: string): Pokemon {
-    return new Pokemon(0, name, url, new Array<NameEntity>(), new Array<NameEntity>(), "loading")
+    return new Pokemon(0, name, url, new Array<NameEntity>(), new Array<NameEntity>())
   }
 }
 

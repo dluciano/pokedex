@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router'
 
 import { Pokemon } from "./pokemon.model";
+import { PokemonService } from './pokemon.service';
 /**
  * We're loading this component asynchronously
  * We are using some magic with es6-promise-loader that will wrap the module with a Promise
@@ -24,13 +25,17 @@ console.log('`Pokemon` component loaded asynchronously');
 })
 export class PokemonComponent implements OnInit {
 
-  @Input() model: Pokemon = Pokemon.initial("","");
+  @Input() model: Pokemon = Pokemon.initial("", "");
+  public state: string = "loading";
 
   constructor(private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private pokeService: PokemonService) { }
 
   public ngOnInit() {
-    console.log('hello `Detail` component');
+    this.pokeService.getByUrl(this.model).then(m => {
+      this.state = "loaded";
+    });
   }
 
   public onShowDetails() {
