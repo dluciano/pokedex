@@ -1,7 +1,7 @@
 <section class="pokemon-home-container page-container container bg-white">
   <h1 id="pokemon-home-title" class="text-black" style="font-weight: bold !important;">POK&Eacute;DEX</h1>
   <div class="pokemon-list-container row">
-    <div class="pokemon-detail-short col col-sm-3" *ngFor="let pokemon of pokemons">
+    <div class="pokemon-detail-short col col-sm-3" *ngFor="let pokemon of pokemons"  (click)="showDetails(pokemon)">
       <h2 class="title">#{{pokemon.zeros()}} <span class="font-weight-bold">{{pokemon.name}}</span></h2>
       <div class="image-container text-center">
         <img src="{{ pokemon.image() }}" />

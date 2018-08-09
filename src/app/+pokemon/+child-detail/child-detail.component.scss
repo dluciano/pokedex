@@ -1,5 +1,5 @@
-@import '../../styles/variables';
-@import '../../styles/utils';
+@import '../../../styles/variables';
+@import '../../../styles/utils';
 
 .pokemon-home-container {
   padding: 54px 60px 54px 60px;
@@ -27,8 +27,8 @@
       $card-height: 238px;
       $types-height: 22px;
 
-      &:hover{
-        cursor:pointer;
+      &:hover {
+        cursor: pointer;
       }
 
       background-color: #{$poke-dark-1};
@@ -105,15 +105,15 @@
     }
   }
 
-  .pokemon-btn-load-more-wrapper {
+  .pokemon-btn-explore-more-wrapper {
     text-align: center;
     margin-bottom: 62px;
 
     button {
-      background-color: $poke-blue;
-      min-width: 260px;
-      max-width: 260px;
-      width: 260px;
+      background-color: $poke-orange;
+      min-width: 210px;
+      max-width: 210px;
+      width: 210px;
       text-transform: uppercase;
     }
   }

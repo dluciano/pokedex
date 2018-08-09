@@ -1,8 +1,9 @@
 import {
   Component,
-  OnInit,
+  OnInit
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router'
 
 import { Pokemon } from "./pokemon.model";
 /**
@@ -23,12 +24,17 @@ console.log('`Pokemon` component loaded asynchronously');
 export class PokemonComponent implements OnInit {
   public pokemons: Pokemon[];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+    private router: Router) { }
 
   public ngOnInit() {
     console.log('hello `Detail` component');
     console.log(this.route.snapshot.data);
     this.pokemons = this.route.snapshot.data.data as Array<Pokemon>;
+  }
+
+  public showDetails(pokemon: Pokemon) {
+    this.router.navigate(['./child-detail', pokemon.id]);
   }
 
 }
