@@ -17,7 +17,7 @@ import { PokemonService } from '../pokemon/pokemon.service';
 })
 export class HomeComponent implements OnInit {
   public pokemons: PokemonList = new PokemonList(0, "", "");
-  public offset: number = 12;
+  public offset: number = 1;
   public currentPage: number = -1;
 
   public state: string = "initial-loading";

@@ -19,8 +19,8 @@ export class Pokemon extends NameEntity {
   constructor(public id: number = 0,
     public name: string = "",
     public url: string = "",
-    public types: Array<NameEntity> = Array<NameEntity>(),
-    public abilities: Array<NameEntity> = Array<NameEntity>()) {
+    public types: Array<NameEntity> = new Array<NameEntity>(),
+    public abilities: Array<NameEntity> = new Array<NameEntity>()) {
     super(name, url);
   }
 
@@ -38,10 +38,10 @@ export class Pokemon extends NameEntity {
     this.id = response.id;
     this.name = response.name;
     response.abilities.forEach(e =>
-      this.abilities.push(new NameEntity(e.name, e.url))
+      this.abilities.push(new NameEntity(e.ability.name, e.ability.url))
     );
-    response.abilities.forEach(e =>
-      this.types.push(new NameEntity(e.name, e.url))
+    response.types.forEach(e =>
+      this.types.push(new NameEntity(e.type.name, e.type.url))
     );
   }
 

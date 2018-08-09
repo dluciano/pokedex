@@ -26,8 +26,10 @@
 
   .title {
     padding: #{$title-margin-top-size} 0 0 6px;
+    margin: 0;
     font-size: #{$title-font-size} !important;
     text-transform: capitalize;
+    line-height: 1;
   }
 
   &:nth-child(4n) {
@@ -35,9 +37,17 @@
   }
 
   .image-container {
+    $width-img-container: calc(100% - (#{$title-margin-top-size} + #{$title-font-size} + #{$types-height}) );
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
+    height: calc(100% - (#{$title-margin-top-size} + #{$title-font-size} + #{$types-height}));
+
     img {
-      //Substract the margin top of the title, its content size and the height of the abilities boxes
-      width: calc(100% - #{$title-margin-top-size} - #{$title-font-size} - #{$types-height}) !important;
+      margin: 0 auto;
+      max-width: $width-img-container;
+      min-width: $width-img-container;
+      width: $width-img-container;
       height: auto !important;
     }
   }
