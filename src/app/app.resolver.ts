@@ -9,7 +9,7 @@ export class PokemonDataResolver implements Resolve<Pokemon> {
   constructor(private pokemonSrv: PokemonService) { }
 
   public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    let options = { id: undefined, limit: 12, offset: 0 };
+    let options = { id: undefined, limit: 1, offset: 0 };
     options.id = route.params.id ? parseInt(route.params.id) : options.id;
     options.limit = route.params.limit ? route.params.limit : options.limit;
     options.offset = route.params.offset ? route.params.offset : options.offset;

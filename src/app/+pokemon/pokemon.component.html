@@ -6,8 +6,8 @@
       <div class="image-container text-center">
         <img src="{{ pokemon.image() }}" />
       </div>
-      <div class="abilities text-center" *ngFor="let ability of pokemon.abilities" [ngStyle]="{'background-color': ability.color}">
-        {{ability.name}}
+      <div class="types text-center {{type.name}}" *ngFor="let type of pokemon.types">
+        {{type.name}}
       </div>
     </div>
   </div>

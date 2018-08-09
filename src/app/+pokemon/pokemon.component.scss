@@ -22,9 +22,9 @@
       $border-radius-card: 7.5px;
       $title-margin-top-size: 6px;
       $title-font-size: 1rem;
-      $abilities-height: 22px;
       $card-width: 216px;
       $card-height: 238px;
+      $types-height: 22px;
 
       background-color: #{$poke-dark-1};
       margin: 0 !important;
@@ -49,23 +49,50 @@
       .image-container {
         img {
           //Substract the margin top of the title, its content size and the height of the abilities boxes
-          width: calc(100% - #{$title-margin-top-size} - #{$title-font-size}) !important;
+          width: calc(100% - #{$title-margin-top-size} - #{$title-font-size} - #{$types-height}) !important;
           height: auto !important;
         }
       }
 
-      .abilities {
-        height: $abilities-height;
+      .types {
+        height: $types-height;
         display: inline-block;
         width: 50%;
-        border-bottom-left-radius: $border-radius-card;
-        border-top-right-radius: $border-radius-card;
         text-transform: uppercase;
+        font-size: .7rem;
+        float: right;
+        border-top-left-radius: $border-radius-card;
+        border-bottom-right-radius: $border-radius-card;
+
+        &.grass {
+          background-color: $poke-green;
+        }
+
+        &.poison {
+          background-color: $poke-purple;
+        }
+
+        &.fire {
+          background-color: $poke-orange;
+        }
+
+        &.flying {
+          background-color: $poke-dark-2;
+        }
+
+        &.water {
+          background-color: $poke-blue;
+        }
+
+        &.bug {
+          background-color: $poke-green;
+        }
 
         &:nth-child(2n) {
+          float: left;
           border-radius: unset;
-          border-top-left-radius: $border-radius-card;
-          border-bottom-right-radius: $border-radius-card;
+          border-bottom-left-radius: $border-radius-card;
+          border-top-right-radius: $border-radius-card;
         }
       }
     }
