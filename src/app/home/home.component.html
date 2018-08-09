@@ -1,0 +1,11 @@
+<section class="pokemon-home-container page-container container bg-white">
+  <h1 id="pokemon-home-title" class="text-black" style="font-weight: bold !important;">POK&Eacute;DEX</h1>
+  <div class="pokemon-list-container row">
+    <pokemon [model]="pokemon" *ngFor="let pokemon of pokemons" (click)="onLoadMore(pokemon)">
+    </pokemon>
+  </div>
+  <div class="pokemon-btn-load-more-wrapper">
+    <button class="btn" (click)="onLoadMore()">Load More</button>
+  </div>
+</section>
+<router-outlet></router-outlet>

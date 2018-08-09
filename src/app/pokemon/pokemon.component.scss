@@ -1,0 +1,88 @@
+@import '../../styles/variables';
+@import '../../styles/utils';
+
+.pokemon-short-element-container {
+  $border-radius-card: 7.5px;
+  $title-margin-top-size: 6px;
+  $title-font-size: 1rem;
+  $card-width: 216px;
+  $card-height: 238px;
+  $types-height: 22px;
+
+  background-color: #{$poke-dark-1};
+  margin: 0 !important;
+  margin-right: 13px !important;
+  margin-bottom: 60px !important;
+  padding: 0 !important;
+  border-radius: #{$border-radius-card} !important;
+  max-width: #{$card-width};
+  max-height: $card-height;
+  min-height: $card-height;
+  height: $card-height;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .title {
+    padding: #{$title-margin-top-size} 0 0 6px;
+    font-size: #{$title-font-size} !important;
+    text-transform: capitalize;
+  }
+
+  &:nth-child(4n) {
+    margin-right: 0 !important;
+  }
+
+  .image-container {
+    img {
+      //Substract the margin top of the title, its content size and the height of the abilities boxes
+      width: calc(100% - #{$title-margin-top-size} - #{$title-font-size} - #{$types-height}) !important;
+      height: auto !important;
+    }
+  }
+
+  .types {
+    height: $types-height;
+    display: inline-block;
+    width: 50%;
+    text-transform: uppercase;
+    font-size: .7rem;
+    float: right;
+    border-top-left-radius: $border-radius-card;
+    border-bottom-right-radius: $border-radius-card;
+
+    @include random_rgb_background_color();
+
+    &.grass {
+      background-color: $poke-green;
+    }
+
+    &.poison {
+      background-color: $poke-purple;
+    }
+
+    &.fire {
+      background-color: $poke-orange;
+    }
+
+    &.flying {
+      background-color: $poke-dark-2;
+    }
+
+    &.water {
+      background-color: $poke-blue;
+    }
+
+    &.bug {
+      background-color: $poke-green;
+    }
+
+    &:nth-child(2n) {
+      float: left;
+      border-radius: unset;
+      border-bottom-left-radius: $border-radius-card;
+      border-top-right-radius: $border-radius-card;
+    }
+  }
+}

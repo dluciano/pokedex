@@ -1,6 +1,7 @@
 import {
   Component,
-  OnInit
+  OnInit,
+  Input
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router'
@@ -22,19 +23,18 @@ console.log('`Pokemon` component loaded asynchronously');
   templateUrl: './pokemon.component.html'
 })
 export class PokemonComponent implements OnInit {
-  public pokemons: Pokemon[];
+
+  @Input() model: Pokemon = Pokemon.initial("","");
 
   constructor(private route: ActivatedRoute,
     private router: Router) { }
 
   public ngOnInit() {
     console.log('hello `Detail` component');
-    console.log(this.route.snapshot.data);
-    this.pokemons = this.route.snapshot.data.data as Array<Pokemon>;
   }
 
-  public showDetails(pokemon: Pokemon) {
-    this.router.navigate(['./child-detail', pokemon.id]);
+  public onShowDetails() {
+    this.router.navigate(['./child-detail', this.model.id]);
   }
 
 }

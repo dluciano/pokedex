@@ -15,11 +15,12 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { NoContentComponent } from './no-content';
-//import { DevModuleModule } from './+dev-module';
 
 import '../styles/styles.scss';
 import '../styles/headings.scss';
-import { PokemonService } from './+pokemon/pokemon.service';
+import { PokemonService } from './pokemon/pokemon.service';
+import { HomeComponent } from './home/home.component';
+import { PokemonComponent } from './pokemon/pokemon.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -41,6 +42,8 @@ interface StoreType {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
+    PokemonComponent,
+    HomeComponent,
     NoContentComponent
   ],
   /**
