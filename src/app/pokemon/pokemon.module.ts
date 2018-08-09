@@ -5,8 +5,8 @@ import { RouterModule } from '@angular/router';
 
 import { routes } from './pokemon.routes';
 import { PokemonComponent } from './pokemon.component';
-
-console.log('`Detail` bundle loaded asynchronously');
+import { ChildDetailComponent } from './child-detail/child-detail.component';
+import { PokemonImageComponent } from './pokemon-image/pokemon-image.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +14,8 @@ console.log('`Detail` bundle loaded asynchronously');
      * Components / Directives/ Pipes
      */
     PokemonComponent,
+    ChildDetailComponent,
+    PokemonImageComponent
   ],
   imports: [
     CommonModule,

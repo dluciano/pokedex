@@ -1,0 +1,8 @@
+<div class="poke-image-types-component">
+  <div class="image-container text-center">
+    <span class="middle-helper"></span><img [src]="showLoading ? '../assets/img/loading.png' : model.image()" />
+  </div>
+  <div class="types text-center {{type.name}}" *ngFor="let type of model.types">
+    {{type.name}}
+  </div>
+</div>

@@ -1,17 +1,50 @@
 @import '../../../styles/variables';
 @import '../../../styles/utils';
 
-.pokemon-home-container {
-  padding: 54px 60px 54px 60px;
-  min-height: calc(100vh - 54px);
+.pokemon-detail-container {
+  padding: 0 0 54px 32px;
 
   col {
     padding: 0;
   }
 
-
-  #pokemon-home-title {
+  #pokemon-detail-title {
     margin-bottom: 54px;
+  }
+
+  pokemon {
+    .poke-image-types-component {
+      $border-radius-card: 7.5px;
+      $card-width: 496px;
+      $card-height: 245px;
+      $types-height: 50px;
+
+      width: $card-width;
+      height: $card-height;
+
+      .image-container {
+        $width-img-container: calc(100% - #{$types-height} );
+        height: $width-img-container !important;
+
+        img {
+          max-width: $width-img-container;
+          min-width: $width-img-container;
+          width: $width-img-container;
+        }
+      }
+
+      .types {
+        height: $types-height;
+        font-size: .7rem;
+        border-top-left-radius: $border-radius-card;
+        border-bottom-right-radius: $border-radius-card;
+
+        &:nth-child(2n) {
+          border-bottom-left-radius: $border-radius-card;
+          border-top-right-radius: $border-radius-card;
+        }
+      }
+    }
   }
 
   .pokemon-list-container {
@@ -106,9 +139,6 @@
   }
 
   .pokemon-btn-explore-more-wrapper {
-    text-align: center;
-    margin-bottom: 62px;
-
     button {
       background-color: $poke-orange;
       min-width: 210px;

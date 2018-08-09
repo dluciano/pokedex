@@ -1,18 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, forkJoin } from 'rxjs';
+import { first } from 'rxjs/operators';
 import { Pokemon, NameEntity, PokemonList } from './pokemon.model';
 
 export interface IApiService<T> {
   getByUrl(entity: T): Promise<T>;
   getAll(limit: number, offset: number): Promise<PokemonList>;
+  getById(id: number): Promise<T>;
+}
+
+export class CacheService {
+
 }
 
 @Injectable()
 export class PokemonService implements IApiService<Pokemon> {
-  constructor(
-    public http: HttpClient
-  ) { }
+  private cache: PokemonList;
+
+  constructor(private http: HttpClient) { }
 
   endpoint: string = "http://pokeapi.salestock.net/api/v2";
   resources = {
@@ -47,6 +53,7 @@ export class PokemonService implements IApiService<Pokemon> {
         });
         let list = new PokemonList(response.count, response.previous, response.next);
         pokemons.forEach(p => list.push(p));
+        this.cache = list;
         return list;
       });
   }
@@ -56,5 +63,23 @@ export class PokemonService implements IApiService<Pokemon> {
       entity.updateFromResponse(response);
       return entity;
     });
+  }
+
+  getById(id: number): Promise<Pokemon> {
+    if (this.cache) {
+      let pokemon: Pokemon = this.cache.filter(p => p.id === id)[0];
+      if (pokemon)
+        return new Promise<Pokemon>(p => pokemon);
+
+    }
+    return this
+      .http
+      .get(this.endpoint + this.resources.pokemon + "/" + id)
+      .toPromise()
+      .then((response: any) => {
+        let pResult = Pokemon.initial(response.name, response.url);
+        pResult.updateFromResponse(response);
+        return pResult;
+      });
   }
 }

@@ -1,9 +1,4 @@
-<div class="col col-sm-3 col-md-4 pokemon-short-element-container" (click)="onShowDetails()">
+<div class="col col-sm-3 col-md-4 pokemon-short-element-container {{state}}" (click)="onShowDetails()">
   <h2 class="title">#{{model.zeros()}} <span class="font-weight-bold">{{model.name}}</span></h2>
-  <div class="image-container text-center">
-    <span class="middle-helper"></span><img [src]="state === 'loading' ? '../assets/img/loading.png' : model.image()" />
-  </div>
-  <div class="types text-center {{type.name}}" *ngFor="let type of model.types">
-    {{type.name}}
-  </div>
+  <pokemon-image [model]="model" [showLoading]="state === 'loading'"></pokemon-image>
 </div>

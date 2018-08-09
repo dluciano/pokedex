@@ -39,7 +39,9 @@ export class PokemonComponent implements OnInit {
   }
 
   public onShowDetails() {
-    this.router.navigate(['./child-detail', this.model.id]);
+    if (this.state === "loading")
+      return;
+    this.router.navigate(['pokemon', this.model.id]);
   }
 
 }

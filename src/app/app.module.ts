@@ -21,6 +21,8 @@ import '../styles/headings.scss';
 import { PokemonService } from './pokemon/pokemon.service';
 import { HomeComponent } from './home/home.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
+import { ChildDetailComponent } from './pokemon/child-detail/child-detail.component';
+import { PokemonImageComponent } from './pokemon/pokemon-image/pokemon-image.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -39,10 +41,12 @@ interface StoreType {
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
 @NgModule({
-  bootstrap: [ AppComponent ],
+  bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     PokemonComponent,
+    ChildDetailComponent,
+    PokemonImageComponent,
     HomeComponent,
     NoContentComponent
   ],
@@ -74,4 +78,4 @@ interface StoreType {
     APP_PROVIDERS
   ]
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,33 +1,37 @@
 import {
   Component,
   OnInit,
+  Input,
 } from '@angular/core';
-import { Router } from '@angular/router'
-
-/**
- * We're loading this component asynchronously
- * We are using some magic with es6-promise-loader that will wrap the module with a Promise
- * see https://github.com/gdi2290/es6-promise-loader for more info
- */
-
-console.log('`ChildDetail` component loaded asynchronously');
+import { Router, ActivatedRoute } from '@angular/router'
+import { Pokemon } from '../pokemon.model';
+import { PokemonService } from '../pokemon.service';
 
 @Component({
   selector: 'child-detail',
-   styleUrls: [
+  styleUrls: [
     './child-detail.component.scss'
   ],
   templateUrl: './child-detail.component.html'
 })
 export class ChildDetailComponent implements OnInit {
-  constructor(
-    private router: Router) { }
+  public model: Pokemon = Pokemon.initial("", "");
+  public state: string = "loading";
+
+  constructor(private route: ActivatedRoute,
+    private router: Router,
+    private pokeService: PokemonService) { }
 
   public ngOnInit() {
+    this.route.params.subscribe(p => console.log(p));
+    this.pokeService.getById(parseInt(this.route.snapshot.params.id)).then(p => {
+      this.model = p;
+      this.state = "loaded";
+    });
     console.log('hello `ChildDetail` component');
   }
 
   public goToList() {
-     this.router.navigate(['./']);
+    this.router.navigate(['./']);
   }
 }

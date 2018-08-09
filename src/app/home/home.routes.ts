@@ -1,10 +1,8 @@
 import { HomeComponent } from './home.component';
-import { APP_RESOLVER_PROVIDERS } from '../app.resolver';
+import { ChildDetailComponent } from '../pokemon/child-detail/child-detail.component';
 
 export const routes = [
   {
-    //path: '', children: [
-    //   { path: '', loadChildren: './+pokemon#PokemonModule', resolve: { data: APP_RESOLVER_PROVIDERS[0] } }
-    //]
+    
   },
 ];

@@ -1,6 +1,18 @@
-<section class="pokemon-home-container page-container container bg-white">
+<section class="pokemon-detail-container container bg-white">
+  <div class="float-left navigation-ctrl">
+    <span id="icon-previous float-left"></span>
+    <h2 class=" float-rigiht bg-white">#720 Hoopa</h2>
+  </div>
+  <div class="float-right navigation-ctrl">
+    <h2 class="anteior float-left bg-white">Ivysaur #002</h2>
+    <span id="icon-next float-right"></span>
+  </div>
 
-  <div class="pokemon-btn-explore-more-wrapper">
+  <h1 class="pokemon-detail-title">{{model.name}}</h1>
+
+  <pokemon-image [model]="model" [showLoading]="state === 'loading'"></pokemon-image>
+
+  <div class="pokemon-btn-explore-more-wrapper text-center">
     <button class="btn">EXPLORE MORE POK&Eacute;MON</button>
   </div>
 </section>

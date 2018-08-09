@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+
 export class ApiEntity {
   constructor(public url: string) { }
   updateFromResponse(response: any): any { }

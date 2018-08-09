@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { routes } from './home.routes';
 import { HomeComponent } from './home.component';
 import { PokemonComponent } from '../pokemon/pokemon.component';
+import { ChildDetailComponent } from '../pokemon/child-detail/child-detail.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { PokemonComponent } from '../pokemon/pokemon.component';
      */
     HomeComponent,
     PokemonComponent,
+    ChildDetailComponent
   ],
   imports: [
     CommonModule,

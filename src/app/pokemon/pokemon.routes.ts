@@ -1,10 +1,8 @@
 import { PokemonComponent } from './pokemon.component';
+import { ChildDetailComponent } from './child-detail/child-detail.component';
 
 export const routes = [
   {
-    path: '', children: [
-      { path: '', component: PokemonComponent },
-      { path: 'child-detail', loadChildren: './+child-detail#ChildDetailModule' }
-    ]
+    
   },
 ];
