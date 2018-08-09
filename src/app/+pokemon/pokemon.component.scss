@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import '../../styles/utils';
 
 .pokemon-home-container {
   padding: 54px 60px 54px 60px;
@@ -63,6 +64,8 @@
         float: right;
         border-top-left-radius: $border-radius-card;
         border-bottom-right-radius: $border-radius-card;
+
+        @include random_rgb_background_color();
 
         &.grass {
           background-color: $poke-green;
