@@ -12,8 +12,8 @@ import { Component } from '@angular/core';
  */
 import { HomeComponent } from './home.component';
 import { PokemonService } from '../pokemon/pokemon.service';
-import { Observable, of, forkJoin } from 'rxjs';
-import { PokemonList, Pokemon } from '../pokemon/pokemon.model';
+import { Pokemon } from '../pokemon/pokemon.model';
+import { PokemonList } from '../pokemon/PokemonList';
 
 describe(`Home`, () => {
   let comp: HomeComponent;
