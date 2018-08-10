@@ -2,10 +2,8 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router'
 
-import { Pokemon, NameEntity, PokemonList } from "../pokemon/pokemon.model";
+import { PokemonList } from "../pokemon/pokemon.model";
 import { PokemonService } from '../pokemon/pokemon.service';
 
 @Component({
@@ -22,9 +20,7 @@ export class HomeComponent implements OnInit {
 
   public state: string = "initial-loading";
 
-  constructor(private route: ActivatedRoute,
-    private router: Router,
-    private pokemonService: PokemonService) { }
+  constructor(private pokemonService: PokemonService) { }
 
   public ngOnInit() {
     console.log('Home component loaded');

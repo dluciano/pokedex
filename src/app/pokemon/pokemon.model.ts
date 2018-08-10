@@ -22,7 +22,7 @@ export class Pokemon extends NameEntity {
   public isLargeImage: boolean = false;
   public height: number = 0;
   public weight: number = 0;
-  public firstAbility: Ability = "";
+  public firstAbility: Ability;
 
   //TODO: Load the common data from a catalog. The catalog service will have a group of entities
   //that will store in a cache this data. Every entity will have its own service and entity.
