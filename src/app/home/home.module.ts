@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 
 import { routes } from './home.routes';
 import { HomeComponent } from './home.component';
@@ -19,8 +18,7 @@ import { ChildDetailComponent } from '../pokemon/child-detail/child-detail.compo
   ],
   imports: [
     CommonModule,
-    FormsModule,
-    RouterModule.forChild(routes),
+    FormsModule
   ],
 })
 export class HomeModule {

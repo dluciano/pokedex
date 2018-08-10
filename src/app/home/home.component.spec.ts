@@ -7,8 +7,6 @@ import {
   getTestBed
 } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-
 /**
  * Load the implementations that should be tested.
  */
@@ -22,14 +20,13 @@ describe(`Home`, () => {
   let fixture: ComponentFixture<HomeComponent>;
   let injector: TestBed;
   let pokeServc: PokemonService;
-  let httpMock: HttpTestingController;
 
   const pokemonServiceStub = {
     getAll() {
       const pokemons = Array<Pokemon>();
-      pokemons.push(Pokemon.initial("bulbasaur", ""));
-      const pokeList = new PokemonList(pokemons.length, "", "");
-      pokemons.forEach(p => pokeList.push(p));
+      pokemons.push(Pokemon.initial('bulbasaur', ''));
+      const pokeList = new PokemonList(pokemons.length, '', '');
+      pokemons.forEach((p) => pokeList.push(p));
 
       return new Promise((resolve, reject) => {
         resolve(pokeList);
@@ -44,7 +41,6 @@ describe(`Home`, () => {
     TestBed.configureTestingModule({
       declarations: [HomeComponent],
       schemas: [NO_ERRORS_SCHEMA],
-      imports: [HttpClientTestingModule],
       providers: [{ provide: PokemonService, useValue: pokemonServiceStub }]
     })
 
@@ -54,7 +50,6 @@ describe(`Home`, () => {
       .compileComponents();
     injector = getTestBed();
     pokeServc = injector.get(PokemonService);
-    httpMock = injector.get(HttpTestingController);
   }));
 
   /**
@@ -70,8 +65,7 @@ describe(`Home`, () => {
     fixture.detectChanges();
   });
 
-
-  it('should have 1 pokemon called `bulbasaur`', async(async() => {
+  it('should have 1 pokemon called `bulbasaur`', async(async () => {
     await fixture.whenStable();
     fixture.detectChanges();
     expect(comp.pokemons.length).toEqual(1);

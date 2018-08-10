@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { routes } from './pokemon.routes';
 import { PokemonComponent } from './pokemon.component';
 import { ChildDetailComponent } from './child-detail/child-detail.component';
 import { PokemonImageComponent } from './pokemon-image/pokemon-image.component';
@@ -19,10 +18,8 @@ import { PokemonImageComponent } from './pokemon-image/pokemon-image.component';
   ],
   imports: [
     CommonModule,
-    FormsModule,
-    RouterModule.forChild(routes),
+    FormsModule
   ],
 })
 export class PokemonModule {
-  public static routes = routes;
 }

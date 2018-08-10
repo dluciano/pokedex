@@ -3,7 +3,7 @@ import {
   OnInit
 } from '@angular/core';
 
-import { PokemonList } from "../pokemon/pokemon.model";
+import { PokemonList } from '../pokemon/PokemonList';
 import { PokemonService } from '../pokemon/pokemon.service';
 
 @Component({
@@ -14,11 +14,11 @@ import { PokemonService } from '../pokemon/pokemon.service';
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
-  public pokemons: PokemonList = new PokemonList(0, "", "");
+  public pokemons: PokemonList = new PokemonList(0, '', '');
   public offset: number = 1;
   public currentPage: number = -1;
 
-  public state: string = "initial-loading";
+  public state: string = 'initial-loading';
 
   constructor(private pokemonService: PokemonService) { }
 
@@ -26,23 +26,22 @@ export class HomeComponent implements OnInit {
     console.log('Home component loaded');
     this.load();
   }
-
+  public onLoadMore() {
+    this.state = 'loading';
+    this.currentPage++;
+    this.pokemonService
+      .getAllFromUrl(this.pokemons.next, this.pokemons)
+      .then((pokemonList) => {
+        this.state = 'loaded';
+      });
+  }
   private load() {
     this.currentPage++;
     this.pokemonService
       .getAll(this.offset, this.currentPage)
-      .then(pokemonList => {
+      .then((pokemonList) => {
         this.pokemons = pokemonList;
-        this.state = "loaded";
-      });
-  }
-  public onLoadMore() {
-    this.state = "loading";
-    this.currentPage++;
-    this.pokemonService
-      .getAllFromUrl(this.pokemons.next, this.pokemons)
-      .then(pokemonList => {
-        this.state = "loaded";
+        this.state = 'loaded';
       });
   }
 }

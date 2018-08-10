@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   Input,
 } from '@angular/core';
 import { Pokemon } from '../pokemon.model';
@@ -12,12 +11,7 @@ import { Pokemon } from '../pokemon.model';
   ],
   templateUrl: './pokemon-image.component.html'
 })
-export class PokemonImageComponent implements OnInit {
+export class PokemonImageComponent {
   @Input() public model: Pokemon;
   @Input() public showLoading: boolean;
-
-  constructor() { }
-
-  public ngOnInit() {
-  }
 }

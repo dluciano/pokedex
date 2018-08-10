@@ -10,7 +10,6 @@ describe('Home', () => {
     await browser.get('/');
   });
 
-
   it('should have a element called `Bulbasaur`', async () => {
     const subject = await element(by.css('[title]')).getText();
     const result = 'Bulbasaur';

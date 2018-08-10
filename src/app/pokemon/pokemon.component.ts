@@ -4,11 +4,10 @@ import {
   Input
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
-import { Pokemon } from "./pokemon.model";
+import { Pokemon } from './pokemon.model';
 import { PokemonService } from './pokemon.service';
-
 
 @Component({
   selector: 'pokemon',
@@ -19,23 +18,24 @@ import { PokemonService } from './pokemon.service';
 })
 export class PokemonComponent implements OnInit {
 
-  @Input() model: Pokemon = Pokemon.initial("", "");
-  public state: string = "loading";
+  @Input() public model: Pokemon = Pokemon.initial('', '');
+  public state: string = 'loading';
 
   constructor(private route: ActivatedRoute,
-    private router: Router,
-    private pokeService: PokemonService) { }
+              private router: Router,
+              private pokeService: PokemonService) { }
 
   public ngOnInit() {
     console.log(this.model.url);
-    this.pokeService.getByUrl(this.model).then(m => {
-      this.state = "loaded";
+    this.pokeService.getByUrl(this.model).then((m) => {
+      this.state = 'loaded';
     });
   }
 
   public onShowDetails() {
-    if (this.state === "loading")
+    if (this.state === 'loading') {
       return;
+    }
     this.router.navigate(['pokemon', this.model.id]);
   }
 
