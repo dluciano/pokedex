@@ -11,8 +11,19 @@ export class NameEntity extends ApiEntity {
   }
 }
 
+export class Ability extends NameEntity {
+  constructor(public slot: number, public name: string, public url: string) {
+    super(name, url);
+  }
+}
+
 export class Pokemon extends NameEntity {
   static LOADING_STATE: string = "Loading";
+  public isLargeImage: boolean = false;
+  public height: number = 0;
+  public weight: number = 0;
+  public firstAbility: Ability = "";
+
   //TODO: Load the common data from a catalog. The catalog service will have a group of entities
   //that will store in a cache this data. Every entity will have its own service and entity.
   //I can create a common service that retrieve the data and use a factory to create the models. The factory can be defined in the
@@ -27,7 +38,7 @@ export class Pokemon extends NameEntity {
   }
 
   image() {
-    return "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/" + this.zeros() + ".png";
+    return "https://assets.pokemon.com/assets/cms2/img/pokedex/" + (this.isLargeImage ? "full" : "detail") + "/" + this.zeros() + ".png";
   }
 
   zeros() {
@@ -39,9 +50,14 @@ export class Pokemon extends NameEntity {
   updateFromResponse(response: any): any {
     this.id = response.id;
     this.name = response.name;
-    response.abilities.forEach(e =>
-      this.abilities.push(new NameEntity(e.ability.name, e.ability.url))
-    );
+    this.height = response.height;
+    this.weight = response.weight;
+    response.abilities.forEach(e => {
+      let ab = new Ability(e.slot, e.ability.name, e.ability.url);
+      if (e.slot <= 1)
+        this.firstAbility = ab;
+      this.abilities.push(ab);
+    });
     response.types.forEach(e =>
       this.types.push(new NameEntity(e.type.name, e.type.url))
     );

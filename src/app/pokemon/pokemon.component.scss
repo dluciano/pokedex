@@ -1,7 +1,6 @@
 @import '../../styles/variables';
 @import '../../styles/utils';
 
-
 .pokemon-short-element-container {
   $border-radius-card: 7.5px;
   $title-margin-top-size: 6px;
@@ -11,7 +10,6 @@
   $types-height: 22px;
   position: relative;
   display: block;
-  background-color: #{$poke-dark-1};
   margin: 0 !important;
   margin-right: 13px !important;
   margin-bottom: 60px !important;
@@ -30,13 +28,13 @@
     cursor: wait !important;
   }
 
-
   .title {
     padding: #{$title-margin-top-size} 0 0 6px;
     margin: 0;
     font-size: #{$title-font-size} !important;
     text-transform: capitalize;
     line-height: 1;
+    background-color: #{$poke-dark-1};
   }
 
   &:nth-child(4n) {

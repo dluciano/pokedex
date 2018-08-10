@@ -2,17 +2,171 @@
 @import '../../../styles/utils';
 
 .pokemon-detail-container {
-  padding: 0 0 54px 32px;
+  padding: 0 !important;
+
+  header {
+    margin-bottom: 32px;
+
+    nav {
+      display: block;
+      margin-bottom: 32px;
+      display: inline-block;
+
+      .navigation-ctrl {
+        background-color: $poke-dark-3;
+        width: 510px;
+
+        &.left-nav {
+          border-bottom-right-radius: 35px;
+          margin-right: 4px;
+        }
+
+        &.right-nav {
+          border-bottom-left-radius: 35px;
+        }
+
+        .nav-icon-previous {
+          margin: 32px 0px 32px 32px;
+        }
+
+        .nav-pokemon-name-previous {
+          margin: 25px 50px 25px 0px;
+        }
+
+        .nav-pokemon-name-next {
+          margin: 25px 0px 25px 50px;
+        }
+
+        .nav-icon-next {
+          margin: 32px 32px 32px 0px;
+        }
+      }
+    }
+
+    .pokemon-detail-title {
+      margin-bottom: 32px;
+      clear: both;
+    }
+  }
+
+  main {
+    clear: both;
+    padding: 0 32px 32px 32px;
+
+    .main-detail {
+      margin-bottom: 32px;
+
+      .left-col {
+        display: block;
+        margin-right: 32px;
+        float: left;
+      }
+
+      .right-col {
+        display: block;
+        width: calc(100% - 510px - 32px);
+        float: right;
+
+        .details {
+          padding: 58px;
+          background-color: $poke-blue;
+          border-radius: 5px;
+          margin-bottom: 32px;
+
+          table {
+            tr {
+              th {
+                color: white;
+              }
+
+              td {
+              }
+            }
+          }
+        }
+
+        .base-stats {
+          background-color: $poke-dark-2;
+          padding: 42px 24px;
+
+          .meter-v {
+            width: 56px;
+            position: relative;
+
+            .bar {
+              height: 116px;
+              position: relative;
+              background-color: white;
+
+              .text {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+              }
+
+              .value-bar {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 56px;
+                height: 0;
+                max-height: 116px;
+                background-color: $poke-blue;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .moves {
+      clear: both;
+      margin: 0;
+      padding: 0;
+      margin: 0 0 60px 2px;
+
+      .title{
+        margin-bottom:16px !important;
+      }
+
+      .col-12 {
+        margin: 0;
+        padding: 0;
+      }
+
+      .moves-row {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 35px;
+
+        .text {
+          margin: 0;
+          padding: 0;
+          background-color: $poke-blue;
+          border-radius: 7.5px;
+          margin-right: 34px;
+          width: 212px;
+          height: 36px;
+          border-radius: 7.5px;
+        }
+      }
+    }
+
+    .pokemon-btn-explore-more-wrapper {
+      button {
+        background-color: $poke-orange;
+        min-width: 210px;
+        max-width: 210px;
+        width: 210px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
 
   .col {
     padding: 0;
   }
-
-  #pokemon-detail-title {
-    margin-bottom: 32px;
-    clear: both;
-  }
-
 
   .custom-pokemon-image-size {
     display: block;
@@ -20,18 +174,7 @@
     $card-width: 510px;
     $card-height: 496px;
     $types-height: 50px;
-    outline: 1px red solid;
     width: $card-width !important;
     height: $card-height !important;
-  }
-
-  .pokemon-btn-explore-more-wrapper {
-    button {
-      background-color: $poke-orange;
-      min-width: 210px;
-      max-width: 210px;
-      width: 210px;
-      text-transform: uppercase;
-    }
   }
 }

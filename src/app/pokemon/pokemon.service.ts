@@ -69,8 +69,9 @@ export class PokemonService implements IApiService<Pokemon> {
     if (this.cache) {
       let pokemon: Pokemon = this.cache.filter(p => p.id === id)[0];
       if (pokemon)
-        return new Promise<Pokemon>(p => pokemon);
-
+        return new Promise<Pokemon>((resolve, error) => {
+          resolve(pokemon);
+        });
     }
     return this
       .http

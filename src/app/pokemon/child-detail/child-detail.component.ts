@@ -26,6 +26,7 @@ export class ChildDetailComponent implements OnInit {
     this.route.params.subscribe(p => console.log(p));
     this.pokeService.getById(parseInt(this.route.snapshot.params.id)).then(p => {
       this.model = p;
+      this.model.isLargeImage = true;
       this.state = "loaded";
     });
     console.log('hello `ChildDetail` component');

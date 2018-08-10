@@ -1,18 +1,122 @@
-<section class="pokemon-detail-container container bg-white">
-  <div class="float-left navigation-ctrl">
-    <span id="icon-previous float-left"></span>
-    <h2 class=" float-rigiht bg-white">#720 Hoopa</h2>
-  </div>
-  <div class="float-right navigation-ctrl">
-    <h2 class="anteior float-left bg-white">Ivysaur #002</h2>
-    <span id="icon-next float-right"></span>
-  </div>
-  <h1 class="pokemon-detail-title clear-both text-center">{{model.name}}</h1>
+<section class="pokemon-detail-container page-container container bg-white">
+  <header>
+    <nav>
+      <div class="float-left navigation-ctrl left-nav">
+        <span class="nav-icon-previous  float-left">
+          <
+        </span>
+        <h4 class="nav-pokemon-name-previous float-right text-white">
+          <span class="font-weight-light">
+            #{{model.zeros()}}
+          </span>
+          <span class="font-weight-bold text-capitalize">{{model.name}}</span>
+        </h4>
+      </div>
+      <div class="float-right navigation-ctrl right-nav">
+        <h4 class="nav-pokemon-name-next float-left text-white">
+          <span class="font-weight-light">
+            #{{model.zeros()}}
+          </span>
+          <span class="font-weight-bold text-capitalize">{{model.name}}</span>
+        </h4>
+        <span class="nav-icon-next float-right">
+          >
+        </span>
+      </div>
+    </nav>
+    <h1 class="pokemon-detail-title  text-center">
+      <span class="font-weight-light">
+        #{{model.zeros()}}
+      </span>
+      <span class="font-weight-bold text-capitalize">{{model.name}}</span>
+    </h1>
+  </header>
+  <div class="clearfix"></div>
+  <main>
+    <div class="main-detail">
+      <div class="left-col">
+        <pokemon-image [model]="model" class="custom-pokemon-image-size {{state}}" [showLoading]="state === 'loading'"></pokemon-image>
+      </div>
+      <div class="right-col">
+        <div class="details">
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <th>
+                  Height
+                </th>
+                <th>
+                  Category
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  {{model.height}}
+                </td>
+                <td>
+                  Test
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Weight
+                </th>
+                <th>
+                  Abilities
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  {{model.weight}}
+                </td>
+                <td>
+                  {{model.firstAbility.name}}
+                </td>
+              </tr>
+              <tr>
+                <th class="header-text">
+                  Gender
+                </th>
+                <th class="header-text">
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  F/M/*
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-  <pokemon-image [model]="model" class="custom-pokemon-image-size {{state}}" [showLoading]="state === 'loading'"></pokemon-image>
+        <div class="base-stats">
+          <h3>Base Stats</h3>
+          <div class="meter-v">
+            <div class="bar">
+              <span class="value-bar text-center" [ngStyle]="{'height': '20%'}"></span>
+              <span class="text text-center text-white">20</span>
+            </div>
+            <p class="font-weight-bold text-center">HP</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <div class="pokemon-btn-explore-more-wrapper text-center">
-    <button class="btn">EXPLORE MORE POK&Eacute;MON</button>
-  </div>
+    <div class="moves row">
+      <h2 class="title col-12">Moves</h2>
+      <div class="col-12">
+        <div class="row moves-row">
+          <div class="col-3 text-center text">
+            Testing
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pokemon-btn-explore-more-wrapper text-center">
+      <button class="btn">EXPLORE MORE POK&Eacute;MON</button>
+    </div>
+  </main>
 </section>
 <router-outlet></router-outlet>
