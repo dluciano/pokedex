@@ -2,7 +2,7 @@ The app consist on two screens. One list the pokemon (just one because the API o
 Tech stack:
 * Angular 6
 * NPM
-* Travis
+* Travis CI
 * Docker
 * Typescript
 * TSLint
