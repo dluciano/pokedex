@@ -9,15 +9,14 @@
   $border-radius-card: 7.5px;
 
   &:hover {
-    cursor: default;
+    cursor: pointer;
   }
 
   &.loading:hover {
     cursor: wait !important;
   }
 
-  border-radius: #{$border-radius-card} !important;
-  display: inline-block;
+ 
   position: relative;
   width: 100%;
   height: calc(100% - #{$types-height*2});
@@ -43,8 +42,8 @@
     width: 50%;
     text-transform: uppercase;
     font-size: .7rem;
-    border-top-left-radius: $border-radius-card;
-    border-bottom-right-radius: $border-radius-card;
+    border-bottom-left-radius: $border-radius-card;
+    border-top-right-radius: $border-radius-card;
 
     @include random_rgb_background_color();
 
@@ -75,8 +74,8 @@
     &:nth-child(2n) {
       float: right;
       border-radius: unset;
-      border-bottom-left-radius: $border-radius-card;
-      border-top-right-radius: $border-radius-card;
+      border-top-left-radius: $border-radius-card;
+      border-bottom-right-radius: $border-radius-card;
     }
   }
 }

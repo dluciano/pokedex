@@ -10,10 +10,6 @@ export interface IApiService<T> {
   getById(id: number): Promise<T>;
 }
 
-export class CacheService {
-
-}
-
 @Injectable()
 export class PokemonService implements IApiService<Pokemon> {
   private cache: PokemonList;
@@ -31,12 +27,13 @@ export class PokemonService implements IApiService<Pokemon> {
       .get(url)
       .toPromise()
       .then((response: any) => {
-        //let pokemons: Pokemon[] = new Array<Pokemon>();
-        //pokemons.concat(currentPokeList);
-        currentPokeList.concat(response.results.map((p: any) => {
+        let pokemons = response.results.map((p: any) => {
           return Pokemon.initial(p.name, p.url);
-        }));
-        //var newPokeList = new PokemonList(response.count, pokemons, response.previous, response.next);
+        });
+        pokemons.forEach(p => currentPokeList.push(p));
+        currentPokeList.count = response.count;
+        currentPokeList.previous = response.previous;
+        currentPokeList.next = response.next;
         return currentPokeList;
       });
   }

@@ -8,13 +8,7 @@ import { Router } from '@angular/router'
 
 import { Pokemon } from "./pokemon.model";
 import { PokemonService } from './pokemon.service';
-/**
- * We're loading this component asynchronously
- * We are using some magic with es6-promise-loader that will wrap the module with a Promise
- * see https://github.com/gdi2290/es6-promise-loader for more info
- */
 
-console.log('`Pokemon` component loaded asynchronously');
 
 @Component({
   selector: 'pokemon',
@@ -33,6 +27,7 @@ export class PokemonComponent implements OnInit {
     private pokeService: PokemonService) { }
 
   public ngOnInit() {
+    console.log(this.model.url);
     this.pokeService.getByUrl(this.model).then(m => {
       this.state = "loaded";
     });
