@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { PokemonComponent } from './pokemon.component';
-import { ChildDetailComponent } from './child-detail/child-detail.component';
 import { PokemonImageComponent } from './pokemon-image/pokemon-image.component';
 
 @NgModule({
@@ -13,7 +12,6 @@ import { PokemonImageComponent } from './pokemon-image/pokemon-image.component';
      * Components / Directives/ Pipes
      */
     PokemonComponent,
-    ChildDetailComponent,
     PokemonImageComponent
   ],
   imports: [
