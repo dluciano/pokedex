@@ -1,1 +1,1 @@
-export { PokemonModule } from './pokemon.module';
+export { PokemonComponent } from './pokemon.component';
