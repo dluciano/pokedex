@@ -1,5 +1,5 @@
 import { NameEntity } from './NameEntity';
-import {Ability} from './Ability';
+import { Ability } from './Ability';
 
 export class Pokemon extends NameEntity {
   public static LOADING_STATE: string = 'Loading';

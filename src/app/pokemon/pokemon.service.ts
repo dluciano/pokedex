@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Pokemon } from './pokemon.model';
-import {PokemonList} from './PokemonList';
+import { PokemonList } from './PokemonList';
 
 export interface IApiService<T> {
   getByUrl(entity: T): Promise<T>;
