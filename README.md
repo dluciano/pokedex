@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/dluciano/pokedex.svg?branch=master)](https://travis-ci.org/dluciano/pokedex)
 
-The project description can be founded here: [Challenge](https://github.com/honeypotio/challenge)
+The project description can be founded here: [Challenge](https://github.com/honeypotio/challenge/blob/master/tasks/fe_001.md)
 
 The pokedex is a challange I founded in github and it's a brilliant way to learn Angular and other concepts. Main knowledge applied in this project are: convert an image to a functional web page, use of frontend libraries and technologies: SASS, HTML5, Angular 6. Also CI/CD, and DRY was used because I started the project from a template of Angular with a huge amount of already done solutions (integration to jenkis, e2e with protractor, angular 6, webpack, and so on). 
 
