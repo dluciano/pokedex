@@ -11,11 +11,16 @@ Tech stack:
 * Typescript
 * TSLint
 * Karma
+* Jasmine
 * Protractor
 * Webpack
 * Git/Github
 * Polyfills
 * Serverless/SPA/Pokeapi
+
+Screens: The pokeapi proxy service is down :( I will upload it later when I implement the JS wrapper of the pokedex api or if the proxy server go online again. Nonetheless, it looks like the screens in the challange.
+
+![Home page](https://github.com/dluciano/pokedex/blob/master/screenshots/home.png)
 
 ___
 
@@ -24,6 +29,3 @@ Thanks for the awesome idea of the challenge [challenge](https://github.com/Poke
 Thanks for the [template](https://github.com/gdi2290/angular-starter)
 Thanks for the library of [pokedex for javascript](https://github.com/PokeAPI/pokeapi-js-wrapper) (not implemented yet but I will)
 ___
-
-# License
- [MIT](/LICENSE)
