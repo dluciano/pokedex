@@ -24,7 +24,7 @@ Screens: The pokeapi proxy service is down :( I will upload it later when I impl
 ![Home page](https://github.com/dluciano/pokedex/blob/master/screenshots/home.png)
 ___
 
-[Docker Hub Image](https://hub.docker.com/r/dawlin/pokedex/)
+[Docker Hub Image](https://hub.docker.com/r/dawlin/pokedex/builds/)
 
 ___
 
