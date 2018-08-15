@@ -100,6 +100,7 @@
     "http-server": "^0.11.1",
     "ie-shim": "^0.1.0",
     "jquery": "^3.3.1",
+    "pokeapi-js-wrapper": "^1.1.1",
     "popper.js": "^1.14.4",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.2.1",
