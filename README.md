@@ -18,6 +18,7 @@ Tech stack:
 * Git/Github
 * Polyfills
 * Serverless/SPA/Pokeapi
+* [Pokeapi-js-wrapper](https://github.com/PokeAPI/pokeapi-js-wrapper)
 
 Screens: The pokeapi proxy service is down :( I will upload it later when I implement the JS wrapper of the pokedex api or if the proxy server go online again. Nonetheless, it looks like the screens in the challange.
 
