@@ -11,8 +11,8 @@ export interface IApiService<T> {
 }
 
 const P = new Pokedex({
-  protocol: 'http',
-  hostName: 'pokeapi.salestock.net/',
+  protocol: 'https',
+  hostName: 'pokeapi.co/',
   versionPath: '/api/v2/',
   cache: true,
   timeout: 5 * 1000 // 5s
@@ -20,21 +20,10 @@ const P = new Pokedex({
 
 @Injectable()
 export class PokemonService implements IApiService<Pokemon> {
-
-  private cache: PokemonList;
-  private endpoint: string = 'http://pokeapi.salestock.net/api/v2';
-  private resources = {
-    pokemon: '/pokemon'
-  };
-
-  constructor(private http: HttpClient) { }
-
   public getAllFromUrl(url: string, currentPokeList: PokemonList): Promise<PokemonList> {
-    return this
-      .http
-      .get(url)
-      .toPromise()
-      .then((response: any) => {
+    return P.resource([url])
+      .then((r: any) => {
+        const response = r[0];
         const pokemons = response.results.map((p: any) => {
           return Pokemon.initial(p.name, p.url);
         });
@@ -54,31 +43,19 @@ export class PokemonService implements IApiService<Pokemon> {
       });
       const list = new PokemonList(response.count, response.previous, response.next);
       pokemons.forEach((p) => list.push(p));
-      // this.cache = list;
       return list;
     });
   }
 
   public getByUrl(entity: Pokemon): Promise<Pokemon> {
-    return this.http.get(entity.url).toPromise().then((response) => {
-      entity.updateFromResponse(response);
+    return  P.resource([entity.url]).then((response) => {
+      entity.updateFromResponse(response[0]);
       return entity;
     });
   }
 
   public getById(id: number): Promise<Pokemon> {
-    if (this.cache) {
-      const pokemon: Pokemon = this.cache.filter((p) => p.id === id)[0];
-      if (pokemon) {
-        return new Promise<Pokemon>((resolve, error) => {
-          resolve(pokemon);
-        });
-      }
-    }
-    return this
-      .http
-      .get(this.endpoint + this.resources.pokemon + '/' + id)
-      .toPromise()
+    return P.getPokemonByName(id)
       .then((response: any) => {
         const pResult = Pokemon.initial(response.name, response.url);
         pResult.updateFromResponse(response);
