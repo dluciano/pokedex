@@ -22,7 +22,7 @@ Tech stack:
 
 Screens: The pokeapi proxy service is down :( I will upload it later when I implement the JS wrapper of the pokedex api or if the proxy server go online again. Nonetheless, it looks like the screens in the challange.
 
-![Home page](https://github.com/dluciano/pokedex/blob/master/screenshots/home.png)
+![Home page](https://i.imgur.com/4MY6vTF.png)
 ___
 
 [Docker Hub Image](https://hub.docker.com/r/dawlin/pokedex/builds/)
