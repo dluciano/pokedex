@@ -31,6 +31,5 @@ ___
 
 Thanks to the team of — [**PatrickJS**](https://twitter.com/gdi2290) the template is a valuable asset.
 Thanks for the awesome idea of the challenge [challenge](https://github.com/PokeAPI/pokeapi-js-wrapper)
-Thanks for the [template](https://github.com/gdi2290/angular-starter)
 Thanks for the library of [pokedex for javascript](https://github.com/PokeAPI/pokeapi-js-wrapper) (not implemented yet but I will)
 ___
